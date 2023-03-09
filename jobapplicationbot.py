@@ -40,21 +40,11 @@ driver.get(new_url)
 time.sleep(5)
 
 
-
-#job = driver.find_element(By.XPATH, '//*[@id="global-nav"]/div/nav/ul/li[3]/a')
-#job.click()
-#get_url = driver.current_url
-#new_url = get_url + "/new-page"
 driver.get("https://www.linkedin.com/jobs/")
 time.sleep(15)
 searchbox = driver.find_element(By.CSS_SELECTOR, ".jobs-search-box__inner input")
-#wait.until(EC.visibility_of(searchbox))
 time.sleep(2)
 searchbox.send_keys(job_type)
-#searchloc = driver.find_element(By.CLASS_NAME , "jobs-search-box__text-input")
-#time.sleep(2)
-#wait.until(EC.visibility_of(searchloc))
-#searchloc.send_keys(job_loc)
 time.sleep(2)
 searchbox.send_keys(Keys.ENTER)
 
@@ -65,16 +55,29 @@ driver.get(new_url)
 
 time.sleep(5)
 easy_apply = driver.find_element(By.CSS_SELECTOR, ".search-reusables__filter-binary-toggle button")
-#wait.until(EC.visibility_of(easy_apply))
 time.sleep(5)
 easy_apply.click()
-time.sleep(10)
+time.sleep(5)
 
 
-#exp = driver.find_element(By.CSS_SELECTOR,".search-reusables__filter-trigger-and-dropdown button")
-#wait.until(EC.visibility_of(element))
-#time.sleep(5)
-#exp.click()
+exp = driver.find_element(By.XPATH, '// *[contains(@aria-label, "Experience level filter. Clicking this button displays all Experience level filter options.")]')
+exp.click()
+time.sleep(5)
+
+exp1 = driver.find_element(By.CSS_SELECTOR,"label[for='experience-1']")
+exp1.click()
+time.sleep(2)
+
+
+exp2 = driver.find_element(By.CSS_SELECTOR,"label[for='experience-2']")
+exp2.click()
+time.sleep(5)
+
+exp.click()
+time.sleep(5)
+
+
+
 
 
 all_listings = driver.find_elements(By.CSS_SELECTOR,".job-card-container--clickable")
